@@ -27,7 +27,9 @@
     {% endif %}
 
     <h2 class="archive__item-title" itemprop="headline">
-      {% if post.collection == 'publications' %}
+      {% if post.author == None %}
+        <p style="margin-bottom: 0px;"><strong style="margin-bottom:0px; margin-top: 0px; color:grey;">{{post.title}}</strong></p>
+      {% elsif post.collection == 'publications' %}
         <h2><strong style="margin-bottom:1.3px;">{{post.title}}</strong></h2>
         <p style="margin-top:1px; margin-bottom: 1px; font-size: medium;"> <span style="color:gray;"> {{ post.venue }} </span></p>
       {% elsif post.date %}
@@ -52,7 +54,9 @@
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
     {% endif %}
+    {% if post.read_time %}
     <p>Main Research Question: <span style="color:gray">{{ post.RQ }}</span></p>
+    {% endif %}
     {% if post.citation and post.paperurl and post.slidesurl %}
       <p><a href="{{ post.paperurl }}">PDF</a> | <a href="{{ post.slidesurl }}">Slides</a></p>
     {% elsif post.citation and post.paperurl %}
