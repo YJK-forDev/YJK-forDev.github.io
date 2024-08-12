@@ -28,7 +28,8 @@
 
     <h2 class="archive__item-title" itemprop="headline">
       {% if post.collection == 'publications' %}
-        <h3 style="display: inline"><span style="color:darkcyan"> [{{ post.venue }}] </span></h3> <strong style="display: inline">{{post.title}}</strong>
+        <h2><strong style="margin-bottom:1.3px;">{{post.title}}</strong></h2>
+        <p style="margin-top:1px; margin-bottom: 1px; font-size: medium;"> <span style="color:gray;"> {{ post.venue }} </span></p>
       {% elsif post.date %}
         {% if post.link %}
           <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
@@ -47,7 +48,7 @@
         {% endif %}
 
     {% if post.excerpt and site.read_more != 'enabled' %}
-    <p>{{ post.author }}</p>
+    <p style="margin-top: 1px; margin-bottom: 1.5px;">{{ post.author }}</p>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
     {% endif %}
