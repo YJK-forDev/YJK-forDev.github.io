@@ -13,6 +13,9 @@ To do so, I focus on (1) <u>exploring what humans want from robots to be natural
 
 News!
 ======
+- 2024.08.16
+  + I arrived in Madison. Can't wait to have an amazing time here!
+
 - 2024.04.15 
   + I joined UW-Madison CS as a PhD student. Looking forward to continue my research with badgers 🦡
 
