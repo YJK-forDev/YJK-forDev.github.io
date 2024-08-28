@@ -6,6 +6,6 @@ main:
   - title: "Blog"
     url: /Blog/ 
 
-# 아래 부분은 CV 업데이트 하고 나서 주석 풀 것.
-  #- title: "CV"
-  #  url: /curriculumvitae/    
+
+  - title: "CV"
+    url: /curriculumvitae/    
