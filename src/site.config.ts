@@ -97,7 +97,7 @@ const siteConfig: SiteConfig = {
         socialProfiles: [
             {
                 text: "Email",
-                href: "mailto:yujin.kim2@wisc.edu"
+                href: "mailto:yujinkim@cs.wisc.edu"
             },
             {
                 text: "LinkedIn",
