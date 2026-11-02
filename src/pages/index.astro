@@ -1,0 +1,116 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import siteConfig from "../site.config";
+import Button from "../components/Button.astro";
+import { Image } from "astro:assets";
+import profilePhoto from "../assets/images/profile.jpeg";
+import { news } from "../data/news";
+import { pillButtonClass } from "../utils/helpers";
+---
+
+<MainLayout activePage="home" pageTitle={siteConfig.title}>
+  <div
+    class="jumbo-banner flex flex-col sm:flex-row sm:items-center sm:justify-between w-full px-4 mt-8 gap-6"
+  >
+    <div class="w-full sm:min-w-0 sm:flex-1">
+      <div class="flex flex-wrap items-baseline gap-x-4 text-xs sm:text-base">
+        <h1 class="heading-ff leading-tight text-balance sm:pt-0! sm:pb-0! sm:text-[3.4rem]!">
+          {siteConfig.hero?.title}
+        </h1>
+        {
+          siteConfig.hero?.actions?.map((action, index) => (
+            <Button
+              href={action.href}
+              data-no-swup
+              class={`${index === 0 ? "space-btn-filled" : "space-btn-outlined"} ${pillButtonClass} -translate-y-1.5 hover:-translate-y-2`}
+            >
+              {action.text}
+            </Button>
+          ))
+        }
+      </div>
+      <section class="interests mt-3" aria-label="Research Interests">
+        <p class="interests-label heading-ff">Research Interests</p>
+        <h2 class="body-bold pt-0! pb-3! text-lg! sm:text-xl!">
+          How can we build <mark>educator-centered AI</mark><br />for teaching and learning?
+        </h2>
+        <ol class="interests-steps">
+          <li>
+            <span class="heading-ff">Discover</span>
+            critical sociotechnical gaps between AI and real-world teaching and learning
+          </li>
+          <li>
+            <span class="heading-ff">Develop</span>
+            tools, frameworks, and design spaces for educators to shape how AI augments teaching
+          </li>
+          <li>
+            <span class="heading-ff">Evaluate</span>
+            AI systems through pedagogical criteria, benchmarks, and educator-led methods
+          </li>
+        </ol>
+      </section>
+      <p class="body-regular mt-2 mb-0! text-xs opacity-80">
+        ※ I have also worked on human-AI interaction with embedded systems<br />
+        (e.g., robots), human-AI co-creation, data annotation for AI, and
+        accessibility.
+      </p>
+    </div>
+    <div class="w-full sm:w-fit sm:shrink-0">
+      <Image
+        class="cover-img rounded-4xl"
+        src={profilePhoto}
+        alt="Portrait of Yujin Kim"
+        width={250}
+        height={283}
+        densities={[1, 2]}
+      />
+    </div>
+  </div>
+  <div class="page-content mt-10!">
+    <div class="rich-text text-left font-normal">
+      <h2 class="heading-ff pt-0!">About</h2>
+      <p>
+        I'm a third-year PhD student in the Department of Computer Sciences at
+        the University of Wisconsin-Madison (USA),
+        advised by Professor <a href="https://devsaxena.info/">Devansh Saxena</a> and
+        working closely with Professor <a href="https://shamya.github.io/"
+          >Shamya Karumbaiah</a
+        >. I have also collaborated with <a
+          href="https://www.thecoalalab.com/kenholstein">Ken Holstein</a
+        >, <a href="https://haridecoded.com/">Hari Subramonyam</a>, <a
+          href="https://advait.org/">Advait Sarkar</a
+        >, <a href="https://lukeguerdan.com/">Luke Guerdan</a>, <a
+          href="https://eecs.engin.umich.edu/people/wang-xu/">Xu Wang</a
+        >, and <a href="https://bilgemutlu.com/">Bilge Mutlu</a>.
+      </p>
+      <p>
+        Before joining UW-Madison, I received my B.S. and M.S. in Computer
+        Science from EWHA Womans University (South Korea), where I worked at the Human-Computer Interaction Lab advised by
+        Professor <a
+          href="https://scholar.google.com/citations?user=qv4S97EAAAAJ&hl=en"
+          >Uran Oh</a
+        >. As a recipient of the Korean National AI Talent Scholarship, I also
+        visited <a href="https://www.cmu.edu/">Carnegie Mellon University</a>,
+        where I worked with Professor <a
+          href="https://www.davidlindlbauer.com/">David Lindlbauer</a
+        > and <a href="https://rochester-bear-lab.github.io/yukang">Yukang Yan</a
+        >.
+      </p>
+      <h2 class="heading-ff">News!</h2>
+      <ul
+        class="news-box"
+        tabindex="0"
+        aria-label="News"
+      >
+        {
+          news.map((item) => (
+            <li>
+              <time>{item.date}</time>
+              <span>{item.text}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</MainLayout>

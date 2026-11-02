@@ -1,0 +1,126 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import siteConfig from "../site.config";
+import { Image } from "astro:assets";
+import Button from "../components/Button.astro";
+import { publications } from "../data/publications";
+import { pillButtonClass } from "../utils/helpers";
+
+const years = [...new Set(publications.map((paper) => paper.year))];
+const scholar = siteConfig.socialLinks?.find(
+  (link) => link.text === "Google Scholar",
+);
+---
+
+<MainLayout
+  activePage="publications"
+  pageTitle={siteConfig.title + " | Publications"}
+>
+  <div class="page-content">
+    <h1 class="heading-ff text-balance">Publications</h1>
+    <div class="rich-text text-left font-normal">
+      {
+        scholar && (
+          <p class="flex flex-wrap items-center justify-start gap-3 sm:justify-center">
+            <Button
+              href={scholar.href}
+              class={`space-btn-filled ${pillButtonClass} hover:-translate-y-0.5`}
+            >
+              {scholar.text}
+            </Button>
+          </p>
+        )
+      }
+      {
+        years.map((year) => (
+          <section>
+            <h2 class="heading-ff">{year}</h2>
+            {publications
+              .filter((paper) => paper.year === year)
+              .map((paper) => (
+                <article class="mb-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
+                  <div class="min-w-0 flex-1">
+                    <h3 class="mb-1 text-lg font-bold">{paper.title}</h3>
+                    {paper.keywords && (
+                      <p class="paper-keywords mb-1! flex flex-wrap gap-x-3 text-sm">
+                        {paper.keywords.map((keyword) => (
+                          <span class="whitespace-nowrap">#{keyword}</span>
+                        ))}
+                      </p>
+                    )}
+                    <p class="mb-1! text-sm opacity-70">{paper.venue}</p>
+                    <p class="mb-1!">
+                      {paper.authors.map((author, index) => (
+                        <>
+                          {author === siteConfig.title ? (
+                            <strong>{author}</strong>
+                          ) : (
+                            author
+                          )}
+                          {index < paper.authors.length - 1 && ", "}
+                        </>
+                      ))}
+                      {paper.authorNote}
+                    </p>
+                    <div class="mt-1 flex flex-wrap items-center gap-3">
+                      {paper.paperUrl && (
+                        <Button
+                          href={paper.paperUrl}
+                          class={`space-btn-filled ${pillButtonClass} hover:-translate-y-0.5`}
+                        >
+                          PDF
+                        </Button>
+                      )}
+                      {paper.researchQuestions && (
+                        <>
+                          <input
+                            id={`rq-${paper.title}`}
+                            type="checkbox"
+                            class="peer sr-only"
+                          />
+                          <label
+                            for={`rq-${paper.title}`}
+                            class={`rq-toggle button-link space-btn-filled ${pillButtonClass} hover:-translate-y-0.5`}
+                          >
+                            {paper.questionsLabel ?? "Research Questions"}
+                            <svg viewBox="0 0 12 12" class="size-3" aria-hidden="true">
+                              <path
+                                d="m2 4 4 4 4-4"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </label>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                  {paper.teaser && (
+                    <Image
+                      class="order-first aspect-[7/5] w-full shrink-0 object-cover object-top sm:order-none sm:w-56"
+                      src={paper.teaser}
+                      alt={`Teaser figure for ${paper.title}`}
+                      width={224}
+                      densities={[1, 2]}
+                    />
+                  )}
+                  {paper.researchQuestions && (
+                    <p class="rq-panel">
+                      {paper.researchQuestions
+                        .split(/^((?:RQ|Q)\d+\.)/m)
+                        .map((part, index) =>
+                          index % 2 === 1 ? <strong>{part}</strong> : part,
+                        )}
+                    </p>
+                  )}
+                </article>
+              ))}
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</MainLayout>

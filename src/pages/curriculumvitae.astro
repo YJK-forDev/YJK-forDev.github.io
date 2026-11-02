@@ -1,0 +1,17 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import siteConfig from "../site.config";
+import { withBase } from "../utils/helpers";
+---
+
+<MainLayout activePage="cv" pageTitle={siteConfig.title + " | CV"}>
+  <div class="page-content">
+    <h1 class="heading-ff text-balance">Curriculum Vitae</h1>
+    <p class="text-left text-sm opacity-70">Updated Nov, 2026.</p>
+    <iframe
+      class="h-[80vh] w-full rounded-xl"
+      title="Yujin Kim's CV"
+      src={withBase("/YujinKim_CV.pdf")}
+    ></iframe>
+  </div>
+</MainLayout>

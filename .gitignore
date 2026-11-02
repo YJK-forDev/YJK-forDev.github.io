@@ -1,12 +1,34 @@
-# Ignore the contents of the _site directory
-_site/
+# build output
+dist/
 
-# Ignore the directory for local files during development
-local/
+# generated types
+.astro/
 
-# Ignore the Gemfile that is generated
-Gemfile.lock
+# dependencies
+node_modules/
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
-# Ingore files created by npm
-node_modules
-package-lock.json
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# original photos (may contain location metadata)
+*.HEIC
+
+# macOS-specific files
+.DS_Store
+
+# source PDFs for teaser images
+src/Teaser/

@@ -1,0 +1,33 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import siteConfig from "../site.config";
+import BirdHi from "../assets/images/bird-hi.svg";
+import Button from "../components/Button.astro";
+import { pillButtonClass } from "../utils/helpers";
+---
+
+<MainLayout activePage="contact" pageTitle={siteConfig.title + " | Contact"}>
+  <div class="page-content">
+    <h1 class="heading-ff text-balance">{siteConfig.contactInfo?.title}</h1>
+    <div class="flex flex-col items-center gap-8 sm:flex-row sm:items-center">
+      <div class="flex min-w-0 flex-1 flex-col">
+        <p class="font-normal text-left text-balance">
+          {siteConfig.contactInfo?.text}
+        </p>
+        <p class="font-bold text-left flex flex-wrap items-center gap-3">
+          {
+            siteConfig.contactInfo?.socialProfiles?.map((profile) => (
+              <Button
+                  href={profile.href}
+                  class={`space-btn-filled font-normal ${pillButtonClass} hover:-translate-y-0.5`}
+                >
+                  {profile.text}
+                </Button>
+            ))
+          }
+        </p>
+      </div>
+      <BirdHi class="h-auto w-full max-w-[14rem] shrink-0" />
+    </div>
+  </div>
+</MainLayout>

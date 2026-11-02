@@ -1,0 +1,296 @@
+@import url("animate.css");
+@import url("fonts.css");
+@import "tailwindcss";
+
+/* 0. color variables & fonts */
+/* 1. html elements */
+/* 2. utilities */
+
+/* 0. color variables & fonts */
+:root {
+  --space-accent: #17705f;
+  --space-glow: #8fe3c8;
+  --bird-outer: #0f2f2c;
+  --space-cream: #f3efe0;
+  --space-mint: #b5dccf;
+  --space-deep: #123a31;
+  --space-night: #000000;
+}
+
+/* Required to ensure dark: modifiers work when manually toggling mode */
+/* REF: https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --color-space-accent: var(--space-accent);
+  --color-space-glow: var(--space-glow);
+  --color-space-cream: var(--space-cream);
+  --color-space-mint: var(--space-mint);
+  --color-space-deep: var(--space-deep);
+  --color-space-night: var(--space-night);
+  --color-whitesmoke: whitesmoke;
+}
+
+/* 1. html elements */
+html,
+body {
+  @apply mx-0 my-auto min-h-screen p-0 text-base;
+  overscroll-behavior: none;
+}
+
+html.dark body {
+  background-image: linear-gradient(
+    to bottom,
+    var(--color-space-night) 0%,
+    var(--color-space-deep) 100%
+  );
+  @apply bg-space-deep bg-cover bg-no-repeat text-whitesmoke;
+}
+
+html.light body {
+  background-image: linear-gradient(
+    180deg,
+    var(--color-space-cream) 0%,
+    var(--color-space-mint) 100%
+  );
+  @apply bg-space-mint bg-cover bg-no-repeat text-black;
+}
+
+html.dark {
+  --bird-outer: var(--space-glow);
+}
+
+.site-logo {
+  border-radius: 50%;
+}
+
+html.dark .site-logo {
+  box-shadow: 0 0 0 1.5px var(--space-glow);
+}
+
+/* semantic elements */
+header {
+  @apply sticky top-4 z-20 mr-auto ml-auto flex w-full max-w-3xl flex-col items-center justify-center px-0 py-0 text-base;
+}
+
+header > nav {
+  @apply flex flex-row items-center justify-between gap-2 rounded-4xl px-5 py-2 text-xs backdrop-blur-3xl sm:gap-8 sm:py-3 sm:text-base;
+  /* inner glow 👇 */
+  box-shadow:
+    inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.075),
+    /* shadow ring 👇 */ 0 0 0 1px hsla(0, 0%, 0%, 0.05),
+    /* multiple soft shadows 👇 */ 0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+    0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+    0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+}
+
+main {
+  @apply mx-auto flex flex-col items-start justify-between px-4 pt-0 pb-0 sm:items-center;
+}
+
+footer {
+  @apply mx-auto mt-12 flex w-full max-w-3xl flex-col flex-wrap items-center justify-center gap-4;
+}
+
+h1 {
+  @apply py-4 text-2xl sm:py-6 sm:text-6xl;
+}
+
+h2 {
+  @apply py-2 text-xl sm:py-4 sm:text-3xl;
+}
+
+p {
+  @apply mb-6;
+}
+
+img {
+  @apply h-auto max-w-full rounded-xl;
+}
+
+/* links */
+a.button-link:not(:disabled),
+button.button-link:not(:disabled),
+label.button-link {
+  @apply inline-flex cursor-pointer items-center justify-center rounded-full border px-6 py-2 leading-tight transition hover:border-space-accent hover:text-space-accent sm:px-8 hover:dark:border-space-glow hover:dark:text-space-glow;
+}
+a.button-link.space-btn-filled:not(:disabled),
+button.button-link.space-btn-filled:not(:disabled),
+label.button-link.space-btn-filled {
+  @apply bg-black text-whitesmoke hover:border-space-accent hover:bg-space-accent dark:bg-whitesmoke dark:text-black dark:hover:border-space-glow dark:hover:bg-space-glow;
+}
+a.button-link.space-btn-outlined:not(:disabled),
+button.button-link.space-btn-outlined:not(:disabled) {
+  @apply border border-black bg-transparent text-black hover:border-space-accent hover:text-space-accent dark:border-whitesmoke dark:bg-transparent dark:text-whitesmoke dark:hover:border-space-glow dark:hover:text-space-glow;
+}
+
+html.dark a:not(.button-link) {
+  @apply text-whitesmoke;
+}
+
+html.light a:not(.button-link) {
+  @apply text-black;
+}
+
+html.light a:not(.button-link):hover {
+  @apply text-space-accent;
+}
+
+html.dark a:not(.button-link):hover {
+  @apply text-space-glow;
+}
+
+.page-content {
+  @apply my-12 w-full px-4 text-center;
+}
+
+.rich-text a:not(.button-link) {
+  @apply font-medium underline-offset-2 hover:underline;
+}
+
+html.light .rich-text a:not(.button-link) {
+  color: #17705f;
+}
+
+html.dark .rich-text a:not(.button-link) {
+  color: #8fe3c8;
+}
+
+.rich-text ul {
+  @apply mb-6 flex flex-col gap-4;
+}
+
+.interests-label {
+  @apply mb-1! text-base;
+  color: #17705f;
+}
+
+html.dark .interests-label {
+  color: #8fe3c8;
+}
+
+.interests mark {
+  color: inherit;
+  background: linear-gradient(transparent 58%, #b5dccf 58%);
+}
+
+html.dark .interests mark {
+  background: linear-gradient(transparent 58%, rgb(23 112 95 / 0.9) 58%);
+}
+
+.interests-steps {
+  @apply grid gap-3 border-t-2 pt-3 text-xs leading-snug sm:grid-cols-3 sm:gap-0;
+  border-color: currentColor;
+}
+
+.interests-steps li {
+  @apply sm:px-3 sm:first:pl-0 sm:last:pr-0 sm:not-first:border-l sm:not-first:border-gray-500/50;
+}
+
+.interests-steps span {
+  @apply block text-lg leading-tight;
+}
+
+.news-box {
+  @apply mb-0! max-h-80 gap-0! overflow-y-auto rounded-2xl px-5 py-2 text-sm;
+  background-color: rgb(15 47 44 / 0.05);
+  box-shadow:
+    inset 0 3px 9px rgb(15 47 44 / 0.28),
+    inset 0 -1px 2px rgb(255 255 255 / 0.5);
+  scrollbar-width: thin;
+  scrollbar-color: rgb(107 114 128 / 0.5) transparent;
+}
+
+html.dark .news-box {
+  color-scheme: dark;
+  background-color: rgb(0 0 0 / 0.3);
+  box-shadow:
+    inset 0 3px 10px rgb(0 0 0 / 0.75),
+    inset 0 -1px 2px rgb(143 227 200 / 0.15);
+}
+
+.news-box li {
+  @apply grid gap-0.5 border-b border-gray-500/30 py-2.5 leading-snug sm:grid-cols-[7.5rem_1fr] sm:gap-3;
+}
+
+.news-box li:last-child {
+  @apply border-b-0;
+}
+
+.news-box time {
+  @apply text-xs font-medium whitespace-nowrap sm:pt-0.5;
+  color: #17705f;
+  font-variant-numeric: tabular-nums;
+}
+
+html.dark .news-box time {
+  color: #8fe3c8;
+}
+
+.rq-toggle {
+  @apply gap-1.5 select-none;
+}
+
+.rq-toggle svg {
+  transition: transform 0.2s;
+}
+
+.peer:checked + .rq-toggle svg {
+  transform: rotate(180deg);
+}
+
+.peer:focus-visible + .rq-toggle {
+  outline: 2px solid var(--space-accent);
+  outline-offset: 2px;
+}
+
+.rq-panel {
+  display: none;
+  white-space: pre-line;
+  flex-basis: 100%;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  background-color: rgb(255 255 255 / 0.65);
+}
+
+html.dark .rq-panel {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+article:has(.peer:checked) > .rq-panel {
+  display: block;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+
+.blinking {
+  animation: cursor-blink 1.2s steps(2) infinite;
+}
+
+@media (orientation: portrait) {
+  .page-content {
+    text-align: left;
+  }
+}
+
+@media (max-width: 315px) {
+  section {
+    gap: 3rem;
+  }
+}
+
+.paper-keywords {
+  color: #8f2424;
+}
+
+html.dark .paper-keywords {
+  color: #f2a3a3;
+}
