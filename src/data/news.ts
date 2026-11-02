@@ -22,6 +22,6 @@ export const news: NewsItem[] = [
     { date: "2023.12.14", text: "My paper 'Understanding Novice's Annotation Process For 3D Semantic Segmentation Task With Human-In-The-Loop' has been accepted to IUI'24. 👏" },
     { date: "2023.11.03", text: "I successfully defended my master's thesis. Thank you to Prof. Uran Oh, Young Jun Kim, and Se Eun Oh. 📜" },
     { date: "2023.01.30", text: "My first paper, 'The design space of the auditory representation of objects and their behaviours in virtual reality for blind people' has been accepted to 2023 IEEE Transactions on Visualization and Computer Graphics. 🙌" },
-    { date: "2022.08–2023.02", text: "I visited Carnegie Mellon University in Pittsburgh, PA, USA 🇺🇸 as a visiting scholar, supported by the National AI Talent Scholarship." },
-    { date: "2022.06.03", text: "I was selected as one of the top 30 Korean AI talent students and awarded the Korean government scholarship. I will join CMU as a visiting scholar. 🌟" }
+    { date: "2022.08–2023.02", text: "I visited Carnegie Mellon University in Pittsburgh, PA, USA 🇺🇸 as a visiting student, supported by the National AI Talent Scholarship." },
+    { date: "2022.06.03", text: "I was selected as one of the top 30 Korean AI talent students and awarded the Korean government scholarship. I will join CMU as a visiting student. 🌟" }
 ];
