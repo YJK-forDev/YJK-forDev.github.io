@@ -27,9 +27,8 @@ export const publications: Publication[] = [
         title: "Educators as Evaluators: Designing for Educator-Led Evaluation of GenAI in Education",
         keywords: ["AI for Education", "AI Evaluation", "Human-Centered AI"],
         year: 2027,
-        venue: "Workshop at the Conference on Human Factors in Computing Systems (CHI'27), in review",
-        authors: [],
-        authorNote: "Worked as first author",
+        venue: "In submission",
+        authors: ["Yujin Kim", "Xinyi Lu", "Yan Tao", "Zoe Kaputa", "Pragati Maheshwary", "Chenyang Wang", "Kenneth Holstein", "Hariharan Subramonyam", "Luke Guerdan", "Advait Sarkar", "Xu Wang", "Shamya Karumbaiah", "Devansh Saxena"],
         teaser: evaluatorsTeaser,
         researchQuestions: "Q1. What should educators evaluate when GenAI enters the classroom, and how, given their limited time?\nQ2. Rather than placing the full burden of evaluation on individual educators, how can GenAI and its surrounding environment be designed to make educator-led evaluation possible?",
         questionsLabel: "Workshop Questions"
@@ -38,9 +37,8 @@ export const publications: Publication[] = [
         title: "SALSA: Supporting Instructors in Shaping Appropriate Student–AI Interaction for Learning in Assignments",
         keywords: ["AI for Education", "Human-AI Interaction", "Interactive AI Systems"],
         year: 2027,
-        venue: "ACM Conference on Fairness, Accountability, and Transparency (ACM FAccT'27), in review",
-        authors: [],
-        authorNote: "Worked as first author",
+        venue: "In submission",
+        authors: ["Yujin Kim", "Pragati Maheshwary", "Shamya Karumbaiah", "David McHugh", "Devansh Saxena"],
         teaser: salsaTeaser,
         researchQuestions: "RQ1. How do higher education instructors shape student–AI interaction in assignments, and what challenges and needs do they have?\nRQ2. How can a tool be designed to help instructors shape this interaction?\nRQ3. How does SALSA support this process, and what sociotechnical gaps emerge?"
     },
