@@ -11,6 +11,8 @@ export default defineConfig({
   // Keep URLs from the previous site working.
   redirects: {
     "/about": "/",
+    "/cv": "/curriculumvitae",
+    "/publication/2023-02-22-paper-title-number-1": "/publications",
   },
   integrations: [
     swup({

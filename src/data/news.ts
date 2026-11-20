@@ -5,6 +5,7 @@ export type NewsItem = {
 
 // Newest first.
 export const news: NewsItem[] = [
+    { date: "2026.11.20", text: "My workshop 'Educators as Evaluators: Designing for Educator-Led Evaluation of GenAI in Education' has been accepted to ACM CHI'27. 🎉" },
     { date: "2026.08", text: "I started working as a Project Assistant for Prof. Devansh Saxena on responsible educational AI. 💼" },
     { date: "2026.06.25–28", text: "Our paper 'When AI Breaks, Teachers Repair' was presented at ACM FAccT'26 in Montréal, Canada 🇨🇦." },
     { date: "2026.06.22–25", text: "I presented 'Empowering Teachers to Design AI Roles for Work' online at CHIWORK'26 (Linz, Austria 🇦🇹)." },

@@ -28,6 +28,10 @@ import siteConfig from "../site.config";
         href={withBase("/")}>Go Back Home</a
       >
     </p>
+    <p class="text-sm opacity-70">Redirecting to the home page…</p>
     <SpaceKeyboard />
   </div>
+  <script is:inline define:vars={{ homeUrl: withBase("/") }}>
+    window.location.replace(homeUrl);
+  </script>
 </MainLayout>

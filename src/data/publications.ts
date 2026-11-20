@@ -27,7 +27,7 @@ export const publications: Publication[] = [
         title: "Educators as Evaluators: Designing for Educator-Led Evaluation of GenAI in Education",
         keywords: ["AI for Education", "AI Evaluation", "Human-Centered AI"],
         year: 2027,
-        venue: "In submission",
+        venue: "ACM Conference on Human Factors in Computing Systems (CHI'27)",
         authors: ["Yujin Kim", "Xinyi Lu", "Yan Tao", "Zoe Kaputa", "Pragati Maheshwary", "Chenyang Wang", "Kenneth Holstein", "Hariharan Subramonyam", "Luke Guerdan", "Advait Sarkar", "Xu Wang", "Shamya Karumbaiah", "Devansh Saxena"],
         teaser: evaluatorsTeaser,
         researchQuestions: "Q1. What should educators evaluate when GenAI enters the classroom, and how, given their limited time?\nQ2. Rather than placing the full burden of evaluation on individual educators, how can GenAI and its surrounding environment be designed to make educator-led evaluation possible?",
