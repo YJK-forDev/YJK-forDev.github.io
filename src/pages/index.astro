@@ -5,12 +5,29 @@ import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
 import profilePhoto from "../assets/images/profile.jpeg";
 import { news } from "../data/news";
-import { pillButtonClass } from "../utils/helpers";
+import { pillButtonClass, withBase } from "../utils/helpers";
 ---
 
 <MainLayout activePage="home" pageTitle={siteConfig.title}>
+  <aside class="update-banner mx-4 mt-12" aria-label="Updates">
+    <span class="update-badge heading-ff">Update</span>
+    <ul class="update-list">
+      <li>
+        <time class="update-date" datetime="2026-11-20">Nov 20, 2026</time>
+        <p>
+          🥰 Our workshop <a href={withBase("/publications")} class="font-medium underline">Educators as Evaluators: Designing for Educator-Led Evaluation of GenAI in Education</a> has been accepted to <strong>CHI'27</strong>!
+        </p>
+      </li>
+      <li>
+        <time class="update-date" datetime="2026-11-20">Nov 20, 2026</time>
+        <p>
+          I just started research on two ideas I proposed, one about <em>evaluation benchmarks for educational GenAI</em>, and the other one about <em>educator-led personalized learning</em>. So exciting! Stay tuned 😎
+        </p>
+      </li>
+    </ul>
+  </aside>
   <div
-    class="jumbo-banner flex flex-col sm:flex-row sm:items-center sm:justify-between w-full px-4 mt-8 gap-6"
+    class="jumbo-banner flex flex-col sm:flex-row sm:items-center sm:justify-between w-full px-4 mt-5 gap-6"
   >
     <div class="w-full sm:min-w-0 sm:flex-1">
       <div class="flex flex-wrap items-baseline gap-x-4 text-xs sm:text-base">

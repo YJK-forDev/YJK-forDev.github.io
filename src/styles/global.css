@@ -161,6 +161,62 @@ html.dark .rich-text a:not(.button-link) {
   @apply mb-6 flex flex-col gap-4;
 }
 
+.update-banner {
+  @apply flex flex-col items-start gap-2 rounded-2xl px-4 py-3 sm:flex-row sm:gap-4;
+  background-color: #f8d2d8;
+}
+
+html.dark .update-banner {
+  background-color: rgb(244 167 180 / 0.16);
+}
+
+html.light .update-banner a:not(.button-link) {
+  color: #17705f;
+}
+
+html.dark .update-banner a:not(.button-link) {
+  color: #8fe3c8;
+}
+
+.update-banner > .update-badge {
+  @apply sm:mt-0.5;
+}
+
+.update-list {
+  @apply m-0! flex min-w-0 flex-1 list-none flex-col gap-2 p-0! text-sm leading-snug;
+}
+
+.update-list li {
+  @apply flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3;
+}
+
+.update-list li + li {
+  @apply border-t pt-2;
+  border-color: rgb(15 47 44 / 0.12);
+}
+
+html.dark .update-list li + li {
+  border-color: rgb(255 255 255 / 0.15);
+}
+
+.update-list p {
+  @apply m-0! p-0!;
+}
+
+.update-date {
+  @apply text-xs font-medium whitespace-nowrap opacity-60;
+}
+
+.update-badge {
+  @apply shrink-0 rounded-full px-3 py-0.5 text-xs text-white;
+  background-color: #17705f;
+}
+
+html.dark .update-badge {
+  background-color: #8fe3c8;
+  color: #0f2f2c;
+}
+
 .interests-label {
   @apply mb-1! text-base;
   color: #17705f;
